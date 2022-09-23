@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CreditReview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class CreditAnalysisController extends Controller
 {   
-    private $score = 100;
-    private $scorePercent = 0;
-
     /**
      * creditAnalysis
      *
@@ -48,37 +46,29 @@ class CreditAnalysisController extends Controller
                   ->header('Content-Type', 'application/json');
         }
 
-        $salaryRentDiff = (($request->rent_value * 100) / $request->salary);
-        if($salaryRentDiff > 30)
-        {
-            $this->scorePercent = (18 / 100) * $this->score;
-            $this->score = $this->score - $this->scorePercent;
-        }        
+        $creditReview = new CreditReview();
+        $resultCreditReview = $creditReview->analyzeCreditData($request->cpf, $request->salary, $request->limit_card, $request->rent_value, $request->negative);
+        
+        $creditReviewCreate = CreditReview::create([
+            'name' => $request->name,
+            'cpf' => $request->cpf,
+            'negative' => $request->negative,
+            'salary' => $request->salary,
+            'limit_card' => $request->limit_card,
+            'rent_value' => $request->rent_value,
+            'street' => $request->street,
+            'street_number' => $request->street_number,
+            'county' => $request->county,
+            'state' => $request->state,
+            'cep' => $request->cep,
+            'final_score' => $resultCreditReview->score,
+            'result' => $resultCreditReview->resultDescription
+        ]);
 
-        if($request->negative == 1)
-        {
-            $this->scorePercent = (31 / 100) * $this->score;            
-            $this->score = $this->score - $this->scorePercent;
-        }
-
-        if($request->limit_card <= $request->rent_value)
-        {
-            $this->scorePercent = (10 / 100) * $this->score;            
-            $this->score = $this->score - $this->scorePercent;
-        }
-
-        $disapproved90 = true;
-        if($disapproved90)
-        {
-            $this->scorePercent = (15 / 100) * $this->score;            
-            $this->score = $this->score - $this->scorePercent;
-        }
-
-        if(is_float($this->score))
-        {
-            $this->score = ceil($this->score);
-        }
-
-        return response($this->score, 200);
+        return response()->json([
+            'cod_ref' => $creditReviewCreate->id,
+            'score' => $resultCreditReview->score,
+            'result' => $resultCreditReview->resultDescription
+        ]);
     }
 }

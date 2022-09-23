@@ -31,7 +31,6 @@ class ClientController extends Controller
             'cpf' => 'required',
             'salary' => 'required',
             'limit_card' => 'required',
-            'rent_value' => 'required',
             'street' => 'required',
             'street_number' => 'required',
             'county' => 'required',

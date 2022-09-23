@@ -10,6 +10,6 @@ class Client extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'cpf', 'salary', 'limit_card', 'rent_value', 'street', 'street_number', 'county', 'state', 'cep'
+        'name', 'cpf', 'salary', 'limit_card', 'street', 'street_number', 'county', 'state', 'cep'
     ];
 }

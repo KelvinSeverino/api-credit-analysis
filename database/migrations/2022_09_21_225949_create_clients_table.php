@@ -17,10 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('cpf');
-            $table->boolean('negative')->default(0);
             $table->float('salary', 10, 2);
             $table->float('limit_card', 10, 2);
-            $table->float('rent_value', 10, 2);
             $table->string('street', 129);
             $table->integer('street_number');
             $table->string('county', 75);

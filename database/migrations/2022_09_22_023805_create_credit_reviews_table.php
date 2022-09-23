@@ -15,17 +15,20 @@ return new class extends Migration
     {
         Schema::create('credit_reviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('client_id');
-            $table->boolean('negative');
+            $table->string('name');
+            $table->string('cpf');
+            $table->boolean('negative')->default(0);
             $table->float('salary', 10, 2);
             $table->float('limit_card', 10, 2);
-            $table->float('rent_value', 10, 2);
-            $table->boolean('disapproved90');            
+            $table->float('rent_value', 10, 2);            
+            $table->string('street', 129);
+            $table->integer('street_number');
+            $table->string('county', 75);
+            $table->string('state', 2);
+            $table->string('cep', 9);         
             $table->integer('final_score');
-            $table->string('result', 1);
+            $table->string('result', 20);
             $table->timestamps();
-            
-            $table->foreign('client_id')->references('id')->on('Clients');
         });
     }
 
