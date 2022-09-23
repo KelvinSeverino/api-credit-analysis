@@ -14,6 +14,27 @@ class CreditAnalysisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function showAnalysis(Request $request)
+    {
+        $request->validate([
+            'cpf' => 'required',
+        ]);
+
+        if(!is_CPF($request->cpf))
+        {
+            return response('CPF Inválido!', 200)
+                  ->header('Content-Type', 'application/json');
+        }
+
+        return response()->json(CreditReview::where('cpf', $request->cpf)->orderBy('id','desc')->take(1)->get());
+    }
+
+    /**
+     * creditAnalysis
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function creditAnalysis(Request $request)
     {
         //Validacao de campos obrigatorios
@@ -46,9 +67,15 @@ class CreditAnalysisController extends Controller
                   ->header('Content-Type', 'application/json');
         }
 
+        if(!is_CPF($request->cpf))
+        {
+            return response('CPF Inválido!', 200)
+                  ->header('Content-Type', 'application/json');
+        }
+
         $creditReview = new CreditReview();
         $resultCreditReview = $creditReview->analyzeCreditData($request->cpf, $request->salary, $request->limit_card, $request->rent_value, $request->negative);
-        
+
         $creditReviewCreate = CreditReview::create([
             'name' => $request->name,
             'cpf' => $request->cpf,

@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/clientes', [ClientController::class, 'list']);
 Route::post('/clientes', [ClientController::class, 'create']);
 
+Route::post('/analise-credito/consulta', [CreditAnalysisController::class, 'showAnalysis']);
 Route::post('/analise-credito', [CreditAnalysisController::class, 'creditAnalysis']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
