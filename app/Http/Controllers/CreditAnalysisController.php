@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Http;
 class CreditAnalysisController extends Controller
 {   
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return CreditReview::all();
+    }
+    
+    /**
      * creditAnalysis
      *
      * @param  \Illuminate\Http\Request  $request
