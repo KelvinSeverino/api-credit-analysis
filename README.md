@@ -30,11 +30,6 @@ Acessar o container do projeto
 docker-compose exec app bash
 ```
 
-Executar comando composer para realizar download de arquivos necessários
-```sh
-composer update
-```
-
 Executar comando para gerar tabelas no banco
 ```sh
 php artisan migrate
@@ -72,3 +67,4 @@ Feito os passos acima, você já poderá consumir os endpoints abaixo:
 | :---------- | :--------- | :------------------------------------------ |
 | `cpf`      | `string` | **Obrigatório**. XXX.XXX.XXX-XX |
 
+**Obs.:**  Para acesso aos demais endpoints, recomenda-se que importe no Postman a documentação da API (Analise-Credito.postman_collection.json).

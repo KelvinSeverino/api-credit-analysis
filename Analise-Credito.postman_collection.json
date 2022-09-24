@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "55f46a5e-1b6a-428d-971f-2db19d51497d",
+		"name": "API Analise Crédito",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Analise de Crédito",
+			"item": [
+				{
+					"name": "Lista Analises de Crédito",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/analise-credito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"analise-credito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Analise de Crédito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Kelvin Severino",
+									"type": "default"
+								},
+								{
+									"key": "cpf",
+									"value": "348.955.608-99",
+									"type": "default"
+								},
+								{
+									"key": "negative",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "salary",
+									"value": "2550",
+									"type": "default"
+								},
+								{
+									"key": "limit_card",
+									"value": "500",
+									"type": "default"
+								},
+								{
+									"key": "rent_value",
+									"value": "750",
+									"type": "default"
+								},
+								{
+									"key": "street",
+									"value": "Avenida Brasil",
+									"type": "default"
+								},
+								{
+									"key": "street_number",
+									"value": "170",
+									"type": "default"
+								},
+								{
+									"key": "county",
+									"value": "Caçapava",
+									"type": "default"
+								},
+								{
+									"key": "state",
+									"value": "SP",
+									"type": "default"
+								},
+								{
+									"key": "cep",
+									"value": "12287-020",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/analise-credito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"analise-credito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta Analise de Crédito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cpf",
+									"value": "348.955.608-99",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/analise-credito/consulta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"analise-credito",
+								"consulta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Analise de Crédito",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Fulano Silva",
+									"type": "default"
+								},
+								{
+									"key": "street",
+									"value": "Avenida Paulista",
+									"type": "default"
+								},
+								{
+									"key": "street_number",
+									"value": "175",
+									"type": "default"
+								},
+								{
+									"key": "county",
+									"value": "São Paulo",
+									"type": "default"
+								},
+								{
+									"key": "state",
+									"value": "SP",
+									"type": "default"
+								},
+								{
+									"key": "cep",
+									"value": "01311-000",
+									"type": "default"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/analise-credito/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"analise-credito",
+								"1"
+							],
+							"query": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta Analise de Crédito",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/analise-credito/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"analise-credito",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
