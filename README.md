@@ -1,9 +1,14 @@
 # Api-Credit-Analysis
 
-## Do que se trata?
-Este projeto se trata de uma API RESTfull desenvolvida em Laravel com funcionalidade de analise de crédito para liberação de aluguel.
+## ❓ Do que se trata?
+Este projeto se trata de uma API RESTful desenvolvida em Laravel com funcionalidade de analise de crédito para liberação de aluguel.
 
-### Como executar
+## 💻 Pré-requisitos
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+* docker
+* docker-compose
+
+### 💻 Como executar
 
 Baixar repositório
 ```sh
@@ -23,11 +28,6 @@ docker-compose up -d
 Acessar o container do projeto
 ```sh
 docker-compose exec app bash
-```
-
-Executar composer
-```sh
-composer update
 ```
 
 Executar comando para gerar tabelas no banco
