@@ -32,7 +32,7 @@ class CreditAnalysisController extends Controller
 
         if(!is_CPF($request->cpf))
         {
-            return response('CPF Inválido!', 200)
+            return response('CPF Inválido!', 400)
                   ->header('Content-Type', 'application/json');
         }
 
@@ -67,7 +67,7 @@ class CreditAnalysisController extends Controller
 
         if($response->status() != 200)
         {
-            return response('Erro ao validar CEP', 400)
+            return response('Erro ao validar CEP', 406)
                   ->header('Content-Type', 'application/json');
         }
 
@@ -79,7 +79,7 @@ class CreditAnalysisController extends Controller
 
         if(!is_CPF($request->cpf))
         {
-            return response('CPF Inválido!', 200)
+            return response('CPF Inválido!', 400)
                   ->header('Content-Type', 'application/json');
         }
 
