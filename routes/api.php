@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CreditAnalysisController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::get('/clientes', [ClientController::class, 'list']);
-Route::post('/clientes', [ClientController::class, 'create']);
 
 Route::post('/analise-credito/consulta', [CreditAnalysisController::class, 'showAnalysis']);
 Route::post('/analise-credito', [CreditAnalysisController::class, 'creditAnalysis']);
