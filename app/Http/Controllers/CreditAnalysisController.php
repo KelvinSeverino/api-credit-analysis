@@ -108,4 +108,15 @@ class CreditAnalysisController extends Controller
             'result' => $resultCreditReview->resultDescription
         ]);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        return CreditReview::destroy($id);
+    }
 }
