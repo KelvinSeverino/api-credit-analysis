@@ -110,6 +110,40 @@ class CreditAnalysisController extends Controller
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //Validacao de campos obrigatorios
+        $request->validate([
+            'name' => $request->name,
+            'street' => $request->street,
+            'street_number' => $request->street_number,
+            'county' => $request->county,
+            'state' => $request->state,
+            'cep' => $request->cep
+        ]);
+
+        //Buscado produto ou retorna erro caso nao encontre
+        $creditReview = CreditReview::findOrFail($id);
+
+        $creditReview->update([
+            'name' => $request->name,
+            'street' => $request->street,
+            'street_number' => $request->street_number,
+            'county' => $request->county,
+            'state' => $request->state,
+            'cep' => $request->cep
+        ]);
+
+        return $creditReview;
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
