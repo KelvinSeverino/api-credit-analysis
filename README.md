@@ -30,6 +30,11 @@ Acessar o container do projeto
 docker-compose exec app bash
 ```
 
+Executar comando composer para realizar download de arquivos necessários
+```sh
+composer update
+```
+
 Executar comando para gerar tabelas no banco
 ```sh
 php artisan migrate
